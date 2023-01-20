@@ -23,7 +23,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log(`connected to db & listening on port ${process.env.port} `);
+      console.log(`connected to db & listening on port ${process.env.PORT} `);
     }); // listen for requests
   })
   .catch((error: any) => {
