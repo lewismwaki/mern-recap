@@ -22,14 +22,17 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps };
 
-    const response = await fetch("/api/workouts", {
-      method: "POST",
-      body: JSON.stringify(workout),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      "https://gritgym-backend.onrender.com/api/workouts",
+      {
+        method: "POST",
+        body: JSON.stringify(workout),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
 
     const json = await response.json();
     if (!response.ok) {
@@ -51,7 +54,7 @@ const WorkoutForm = () => {
     <form onSubmit={handleSubmit}>
       <h4 className='text-xl my-4'>Add a new workout</h4>
 
-      <label >Excersise Title:</label>
+      <label>Excersise Title:</label>
       <input
         className={emptyFields.includes("title") ? " border-red-400" : ""}
         type='text'
@@ -81,9 +84,7 @@ const WorkoutForm = () => {
         value={reps}
       />
 
-      <button>
-        Add Workout
-      </button>
+      <button>Add Workout</button>
 
       {error && (
         <div className='rounded-md mx-0 my-5 p-2 border-2 border-red-300 bg-red-100'>

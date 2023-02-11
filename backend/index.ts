@@ -18,8 +18,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 }); // log request details
 
-app.use("https://gritgym-backend.onrender.com/api/workouts", workoutRoutes); // handle routes
-app.use("https://gritgym-backend.onrender.com/api/user", userRoutes); // handle routes
+app.use("/api/workouts", workoutRoutes); // handle routes
+app.use("/api/user", userRoutes); // handle routes
 
 const PORT = process.env.PORT || 5000;
 //connect to db

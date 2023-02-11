@@ -10,10 +10,13 @@ const WorkoutDetails = ({ workout }) => {
   const handleDelete = async () => {
     if (!user) return;
 
-    const response = await fetch("/api/workouts/" + workout._id, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${user.token}` },
-    });
+    const response = await fetch(
+      "https://gritgym-backend.onrender.com/api/workouts/" + workout._id,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${user.token}` },
+      }
+    );
 
     const json = await response.json();
 

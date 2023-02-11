@@ -7,16 +7,17 @@ export const useLogin = () => {
   const { dispatch } = useAuthContext();
 
   const logIn = async (email, password) => {
-    
     setIsLoading(true);
     setError(null);
 
-    
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      "https://gritgym-backend.onrender.com/api/user/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     const json = await response.json();
 
